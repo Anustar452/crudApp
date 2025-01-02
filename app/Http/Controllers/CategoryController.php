@@ -28,7 +28,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return view('category.store');
+        // return view('category.store');
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'status' => 'nullable',
+        ]);
+        Category::create(
+            [
+                'name' =>$request->name,
+                'description'=>$request->description,
+                'status'=>$request->status == true ? 1:0,
+            ]
+        );
+        return redirect()->route('category.index')->with('status','Category Created Successfully');
     }
 
     /**

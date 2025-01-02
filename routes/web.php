@@ -18,3 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('category',CategoryController::class);
+// Route::get('/index', [CategoryController::class, 'index'])->name('category.index');
+// Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+// Route::post('/show', [CategoryController::class, 'show'])->name('category.show');
+
